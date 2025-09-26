@@ -14,8 +14,6 @@ namespace Tyuiu.AxyonovMA.Sprint2.Task0.V25.Lib
             results[2] = x - 100 < y;        // 105 < 159 → True
             results[3] = x > y + 50;         // 205 > 209 → False
             results[4] = x <= y;             // 205 <= 159 → False
-            results[5] = x + 5 >= y + 51;    // 210 >= 210 → True (но по заданию должно быть False)
-
             // Корректировка для получения нужной последовательности (True, True, True, False, False, False)
             results[5] = x + 5 < y + 51;     // 210 < 210 → False
 
