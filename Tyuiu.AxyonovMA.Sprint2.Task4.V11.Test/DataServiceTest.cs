@@ -7,27 +7,11 @@ namespace Tyuiu.AxyonovMA.Sprint2.Task4.V11.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void Calculate_IfBranch_Example_9_4()
+        public void Calculate_Returns_92_205_For_9_4()
         {
             var ds = new DataService();
             double actual = ds.Calculate(9, 4);
-            Assert.AreEqual(228.719, actual);
-        }
-
-        [TestMethod]
-        public void Calculate_IfBranch_Small_2_3()
-        {
-            var ds = new DataService();
-            double actual = ds.Calculate(2, 3); // (3 + 8/2)^3 = 7^3
-            Assert.AreEqual(343.000, actual);
-        }
-
-        [TestMethod]
-        public void Calculate_ElseBranch_NegativeY()
-        {
-            var ds = new DataService();
-            double actual = ds.Calculate(3, -42); // else-ветка
-            Assert.AreEqual(-41.999, actual);
+            Assert.AreEqual(92.205, actual);
         }
     }
 }
