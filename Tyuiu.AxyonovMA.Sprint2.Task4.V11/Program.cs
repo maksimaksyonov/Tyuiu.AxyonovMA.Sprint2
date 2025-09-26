@@ -1,44 +1,32 @@
-﻿using Tyuiu.AxyonovMA.Sprint2.Task4.V11.Lib;
+using Tyuiu.AxyonovMA.Sprint2.Task4.V11.Lib;
 
-namespace Tyuiu.AxyonovMA.Sprint2.Task4.V11
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = "Спринт #2 | Выполнил: Аксёнов Максим Алексеевич | ПКТб-25-1";
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* Спринт #2                                                               *");
-            Console.WriteLine("* Тема: Тернарный оператор                                                *");
-            Console.WriteLine("* Задание #4                                                              *");
-            Console.WriteLine("* Вариант #11                                                             *");
-            Console.WriteLine("* Выполнил: Аксёнов Максим Алексеевич | ПКТб-25-1                         *");
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Написать программу, которая вычисляет требуемое значение с              *");
-            Console.WriteLine("* использованием тернарного оператора, где пользователь вводит значение   *");
-            Console.WriteLine("* переменных x,y с клавиатуры. Ответ округлите до 3 знаков после запятой. *");
-            Console.WriteLine("* Условие: если x*20*2 < y+4, то z = (3 + 8/x²)^y                         *");
-            Console.WriteLine("* иначе z = y - ((x+1)/(y+2))^x                                           *");
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
-            Console.WriteLine("***************************************************************************");
+Console.Title = "Спринт #2 | Выполнил: Аксёнов Максим Алексеевич | ПКТб-25-1";
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* Спринт #2                                                               *");
+Console.WriteLine("* Тема: Тернарный оператор                                                *");
+Console.WriteLine("* Задание #4                                                              *");
+Console.WriteLine("* Вариант #11                                                             *");
+Console.WriteLine("* Выполнил: Аксёнов Максим Алексеевич | ПКТб-25-1                         *");
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* УСЛОВИЕ:                                                                *");
+Console.WriteLine("* Введите x и y. Если x - 20 * 2 < y + 4,                                 *");
+Console.WriteLine("*  z = (3 + 8/x)^y, иначе z = y - ((x + 1)/(y + 2))^x.                    *");
+Console.WriteLine("* Ответ округлён до 3 знаков после запятой.                               *");
+Console.WriteLine("***************************************************************************");
 
-            Console.WriteLine("Введите значение X:");
-            double x = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите x: ");
+int x = int.Parse(Console.ReadLine() ?? "0");
 
-            Console.WriteLine("Введите значение Y:");
-            double y = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите y: ");
+int y = int.Parse(Console.ReadLine() ?? "0");
 
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
-            Console.WriteLine("***************************************************************************");
+var ds = new DataService();
+double z = ds.Calculate(x, y);
 
-            DataService ds = new DataService();
-            double result = ds.Calculate(x, y);
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
+Console.WriteLine("***************************************************************************");
+Console.WriteLine($"z = {z}");
 
-            Console.WriteLine("Значение Z = " + result);
-            Console.ReadKey();
-        }
-    }
-}
+Console.WriteLine("Нажмите любую клавишу для выхода...");
+Console.ReadKey();

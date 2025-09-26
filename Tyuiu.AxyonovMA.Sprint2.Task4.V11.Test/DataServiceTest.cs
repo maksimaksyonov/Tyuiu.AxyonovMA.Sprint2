@@ -7,39 +7,22 @@ namespace Tyuiu.AxyonovMA.Sprint2.Task4.V11.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void ValidCalculate_ConditionTrue()
+        public void Calculate_IfBranch()
         {
-            DataService ds = new DataService();
-            double x = 1.0;
-            double y = 50.0;
-            double result = ds.Calculate(x, y);
-            // x*20*2 = 40, y+4 = 54 → 40 < 54 → true
-            double wait = Math.Pow(3 + 8 / Math.Pow(1, 2), 50);
-            Assert.AreEqual(Math.Round(wait, 3), result);
+            var ds = new DataService();
+            // x=2, y=3 => condition true => (3 + 8/2)^3 = 7^3 = 343
+            double actual = ds.Calculate(2, 3);
+            Assert.AreEqual(343.000, actual, 0.0001);
         }
 
         [TestMethod]
-        public void ValidCalculate_ConditionFalse()
+        public void Calculate_ElseBranch()
         {
-            DataService ds = new DataService();
-            double x = 2.0;
-            double y = 1.0;
-            double result = ds.Calculate(x, y);
-            // x*20*2 = 80, y+4 = 5 → 80 < 5 → false
-            double wait = 1 - Math.Pow((2 + 1) / (1 + 2), 2);
-            Assert.AreEqual(Math.Round(wait, 3), result);
-        }
-
-        [TestMethod]
-        public void ValidCalculate_BorderCase()
-        {
-            DataService ds = new DataService();
-            double x = 1.0;
-            double y = 36.0;
-            double result = ds.Calculate(x, y);
-            // x*20*2 = 40, y+4 = 40 → 40 < 40 → false
-            double wait = 36 - Math.Pow((1 + 1) / (36 + 2), 1);
-            Assert.AreEqual(Math.Round(wait, 3), result);
+            var ds = new DataService();
+            // x=3, y=-42 => condition false; y - ((x+1)/(y+2))^x
+            // (4 / -40)^3 = (-0.1)^3 = -0.001;  -42 - (-0.001) = -41.999 => -41.999
+            double actual = ds.Calculate(3, -42);
+            Assert.AreEqual(-41.999, actual, 0.0001);
         }
     }
 }
