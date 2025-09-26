@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tyuiu.AxyonovMA.Sprint2.Task0.V25.Lib;
+using Tyuiu.AxyonovMA.Sprint2.Task0.V1.Lib;
 
-namespace Tyuiu.AxyonovMA.Sprint2.Task0.V25.Test
+namespace Tyuiu.AxyonovMA.Sprint2.Task0.V1.Test
 {
     [TestClass]
     public class DataServiceTest
@@ -10,10 +10,10 @@ namespace Tyuiu.AxyonovMA.Sprint2.Task0.V25.Test
         public void ValidGetCompareOperations()
         {
             DataService ds = new DataService();
-            int x = 205;
-            int y = 159;
+            int x = 233;
+            int y = 122;
             bool[] result = ds.GetCompareOperations(x, y);
-            bool[] wait = { true, true, true, false, false, false };
+            bool[] wait = { true, false, true, false, true, false };
 
             CollectionAssert.AreEqual(wait, result);
         }
