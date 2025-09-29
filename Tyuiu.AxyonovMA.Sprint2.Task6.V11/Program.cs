@@ -15,15 +15,13 @@ Console.WriteLine("*************************************************************
 
 Console.Write("Введите g (год): ");
 int g = int.Parse(Console.ReadLine() ?? "0");
-
 Console.Write("Введите m (месяц 1..12): ");
 int m = int.Parse(Console.ReadLine() ?? "0");
-
 Console.Write("Введите n (день): ");
 int n = int.Parse(Console.ReadLine() ?? "0");
 
 var ds = new DataService();
-string next = ds.GetNextDate(g, m, n);
+string next = ds.FindDateOfNextDay(g, m, n);
 
 Console.WriteLine("***************************************************************************");
 Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
